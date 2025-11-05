@@ -1,4 +1,3 @@
-```yaml
 ---
 title: "How I Finally Understood TCP and UDP"
 date: 2025-11-06
@@ -6,7 +5,6 @@ tags: [networking, tcp, udp, kernel, learning, reflection]
 category: "story"
 summary: "A reflective journey into how data actually travels from an app through the kernel to the network — and what makes TCP and UDP fundamentally different."
 ---
-```
 
 ### How I Finally Understood TCP and UDP
 
