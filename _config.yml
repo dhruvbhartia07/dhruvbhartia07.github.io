@@ -1,5 +1,5 @@
 title: "My Notes"
 description: "Notes and reflections"
-theme: jekyll-theme-minimal
+theme: jekyll-theme-minima
 paginate: 5
 baseurl: ""
