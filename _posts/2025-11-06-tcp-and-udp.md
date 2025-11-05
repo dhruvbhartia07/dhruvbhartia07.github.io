@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How I Finally Understood TCP and UDP"
 date: 2025-11-06
 tags: [networking, tcp, udp, kernel, learning, reflection]
