@@ -1,5 +1,8 @@
-title: "My Notes"
-description: "Notes and reflections"
+title: "Dhruv Bhartia Notes"
+description: "Reflections and explorations in DevOps, networking, and technology."
+url: "https://dhruvbhartia07.github.io"
 theme: minima
-paginate: 5
 baseurl: ""
+author: "Dhruv Bhartia"
+plugins:
+  - jekyll-sitemap
