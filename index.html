@@ -1,0 +1,438 @@
+<!--
+  simple-github-pages-blog.html
+  Single-file static blog for GitHub Pages.
+
+  How to use:
+  1. Put this file as `index.html` in the root of your GitHub Pages repository (e.g., main branch).
+  2. Create a folder named `/posts` at repo root.
+  3. Create an `index.json` inside `/posts` listing available posts, e.g.:
+     [
+       {"slug":"hello-world","title":"Hello, world!","date":"2025-11-12","excerpt":"First post from GitHub Pages demo"}
+     ]
+  4. Add markdown files under `/posts` named `<slug>.md`, e.g. `/posts/hello-world.md`.
+     Example `/posts/hello-world.md`:
+     ```md
+     # Hello, world!
+
+     Welcome to the demo blog. This is a simple markdown file.
+
+     - Fast
+     - Simple
+     - Static
+     ```
+  5. Commit & push. Enable GitHub Pages from repository settings (branch: main, root).
+
+  Notes:
+  - This client-side setup fetches `posts/index.json` and each `posts/<slug>.md`.
+  - If you'd prefer Jekyll or a static site generator (Hugo, Eleventy), this is a minimal alternative.
+  - The built-in markdown parser here is intentionally small — covers headings, lists, code blocks, inline code, bold/italic, links.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple GitHub Pages Blog</title>
+    <meta
+      name="description"
+      content="Lightweight static blog for GitHub Pages using markdown in /posts"
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1020;
+        --muted: #9aa4b2;
+        --accent: #7dd3fc;
+        --glass: rgba(255, 255, 255, 0.03);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        margin: 0;
+        background: linear-gradient(180deg, #071226 0%, #07172a 100%);
+        color: #e6eef6;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 36px auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: var(--card);
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+      }
+      .search {
+        display: flex;
+        margin-bottom: 12px;
+      }
+      .search input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: var(--glass);
+        color: inherit;
+      }
+      .post-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 70vh;
+        overflow: auto;
+        padding-right: 6px;
+      }
+      .post-item {
+        padding: 10px;
+        border-radius: 8px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          transparent
+        );
+        cursor: pointer;
+      }
+      .post-item small {
+        display: block;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      /* Main */
+      .main {
+        background: var(--card);
+        padding: 24px;
+        border-radius: 12px;
+        min-height: 60vh;
+      }
+      .post-title {
+        font-size: 28px;
+        margin: 0 0 6px;
+      }
+      .post-meta {
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .content {
+        line-height: 1.7;
+        color: #dbeaf8;
+      }
+      .content h1,
+      .content h2,
+      .content h3 {
+        color: #fff;
+      }
+      .content pre {
+        background: #061222;
+        padding: 12px;
+        border-radius: 8px;
+        overflow: auto;
+      }
+      .content code {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+
+      /* Responsive */
+      @media (max-width: 880px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          order: 2;
+        }
+        .main {
+          order: 1;
+        }
+      }
+
+      /* small extras */
+      .no-post {
+        color: var(--muted);
+        text-align: center;
+        padding: 40px;
+      }
+      .footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(125, 211, 252, 0.06);
+        color: var(--accent);
+        margin-right: 6px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <aside class="sidebar">
+        <div class="brand">
+          My Blog
+          <span style="font-weight: 400; color: var(--muted); font-size: 12px"
+            >— static + markdown</span
+          >
+        </div>
+        <div class="search">
+          <input id="search" placeholder="Search posts (title / excerpt)" />
+        </div>
+        <div id="postList" class="post-list" aria-live="polite"></div>
+        <div class="footer">
+          Put markdown files under <code>/posts</code>. See comments at top of
+          index.html for examples.
+        </div>
+      </aside>
+
+      <main class="main">
+        <div id="postArea">
+          <div id="welcome" class="no-post">
+            <h2>Welcome 👋</h2>
+            <p>
+              Create a <code>/posts/index.json</code> and add markdown files
+              under <code>/posts</code> to publish posts.
+            </p>
+            <p>Click a post in the left column to read it.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Minimal static-blog client
+      const POST_INDEX = "/posts/index.json";
+      const postListEl = document.getElementById("postList");
+      const postArea = document.getElementById("postArea");
+      const searchInput = document.getElementById("search");
+
+      let posts = [];
+
+      async function fetchIndex() {
+        try {
+          const r = await fetch(POST_INDEX);
+          if (!r.ok) throw new Error("index.json not found");
+          posts = await r.json();
+          renderIndex(posts);
+          handleRouting();
+        } catch (err) {
+          postListEl.innerHTML =
+            '<div style="color:var(--muted);padding:6px">No posts/index.json found — create one under /posts</div>';
+          console.warn(err);
+        }
+      }
+
+      function renderIndex(list) {
+        if (!list || list.length === 0) {
+          postListEl.innerHTML =
+            '<div style="color:var(--muted)">No posts yet</div>';
+          return;
+        }
+        postListEl.innerHTML = "";
+        list.sort((a, b) => new Date(b.date) - new Date(a.date));
+        list.forEach((p) => {
+          const div = document.createElement("div");
+          div.className = "post-item";
+          div.innerHTML = `<strong>${escapeHtml(
+            p.title
+          )}</strong><small>${escapeHtml(p.date)} — ${escapeHtml(
+            p.excerpt || ""
+          )}</small>`;
+          div.onclick = () => {
+            navigateToPost(p.slug);
+          };
+          postListEl.appendChild(div);
+        });
+      }
+
+      function navigateToPost(slug) {
+        location.hash = "#/post/" + slug;
+        // handleRouting will pick it up
+      }
+
+      async function handleRouting() {
+        const hash = location.hash;
+        if (hash.startsWith("#/post/")) {
+          const slug = hash.replace("#/post/", "");
+          await showPost(slug);
+        } else {
+          showWelcome();
+        }
+      }
+
+      async function showPost(slug) {
+        const meta = posts.find((p) => p.slug === slug);
+        try {
+          const res = await fetch(`/posts/${slug}.md`);
+          if (!res.ok) throw new Error("post not found");
+          const md = await res.text();
+          const html = convertMarkdown(md);
+          postArea.innerHTML = `
+          <article>
+            <h1 class="post-title">${escapeHtml(meta?.title || slug)}</h1>
+            <div class="post-meta">${escapeHtml(meta?.date || "")}</div>
+            <div class="content">${html}</div>
+          </article>
+        `;
+          window.scrollTo(0, 0);
+        } catch (err) {
+          postArea.innerHTML = `<div class="no-post">Can't load post <strong>${escapeHtml(
+            slug
+          )}</strong>. Check /posts/${slug}.md and /posts/index.json</div>`;
+          console.warn(err);
+        }
+      }
+
+      function showWelcome() {
+        const el = document.getElementById("welcome");
+        postArea.innerHTML = "";
+        postArea.appendChild(el);
+      }
+
+      // Very small markdown -> HTML converter. Not exhaustive but useful for simple posts.
+      function convertMarkdown(md) {
+        // Escape HTML first
+        let out = md
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+        // Code blocks ```lang\n...```
+        out = out.replace(
+          /```([^\n]*)\n([\s\S]*?)```/g,
+          function (_, lang, code) {
+            return `<pre><code>${code.replace(/&lt;/g, "&lt;")}</code></pre>`;
+          }
+        );
+
+        // Headings #### to <h4>
+        out = out.replace(/^######\s?(.*)$/gm, "<h6>$1</h6>");
+        out = out.replace(/^#####\s?(.*)$/gm, "<h5>$1</h5>");
+        out = out.replace(/^####\s?(.*)$/gm, "<h4>$1</h4>");
+        out = out.replace(/^###\s?(.*)$/gm, "<h3>$1</h3>");
+        out = out.replace(/^##\s?(.*)$/gm, "<h2>$1</h2>");
+        out = out.replace(/^#\s?(.*)$/gm, "<h1>$1</h1>");
+
+        console.log(`Heading converted\n${out}\n---`);
+
+        // Bold **text** and italic *text*
+        out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        out = out.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+
+        // Inline code `x`
+        out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+
+        // Links [text](url)
+        out = out.replace(
+          /\[([^\]]+)\]\(([^)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener">$1</a>'
+        );
+
+        // Ordered list lines starting with 1. 2. etc
+        out = out.replace(
+          /^(?:\s*\d+\.\s+.*(?:\r?\n|$))+(?=\r?\n|$)/gm,
+          function (match) {
+            const items = match
+              .split(/\r?\n/)
+              .map((line) => line.trim())
+              .filter(Boolean)
+              .map((line) => line.replace(/^\s*\d+\.\s+/, "")); // remove '1. ', '2. ', etc.
+
+            return (
+              "<ol>\n" +
+              items.map((i) => `<li>${i}</li>`).join("\n") +
+              "\n</ol>\n"
+            );
+          }
+        );
+
+        console.log(`Ordered List converted\n${out}\n---`);
+
+        // Unordered lists: lines starting with - or *
+        out = out.replace(
+          /^(?:[ \t]*[-*][ \t]+.*(?:\r?\n|$))+(?=\r?\n|$)/gm,
+          function (match) {
+            const items = match
+              .split(/\r?\n/)
+              .map((line) => line.trim())
+              .filter(Boolean) // remove any stray empty strings
+              .map((line) => line.replace(/^\s*[-*]\s+/, "")); // remove "- " or "* "
+
+            return (
+              "<ul>\n" +
+              items.map((i) => `<li>${i}</li>`).join("\n") +
+              "\n</ul>\n"
+            );
+          }
+        );
+
+        console.log(`Unordered List converted\n${out}\n---`);
+
+        // Paragraphs (blanks separate paragraphs)
+        out = out.replace(
+          /^(?!<h|<ul|<ol|<pre|<blockquote|<img|<p|<li)(.+)$/gm,
+          function (m) {
+            // leave block-level tags alone
+            if (/^(<h|<ul|<ol|<pre|<blockquote|<p|<li)/.test(m)) return m;
+            return "<p>" + m + "</p>";
+          }
+        );
+
+        console.log(`Blank Space converted\n${out}\n---`);
+
+        // Simple typographic replacements for readability
+        out = out.replace(/(\n){2,}/g, "<br/>");
+
+        return out;
+      }
+
+      // tiny escape
+      function escapeHtml(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      // Search
+      searchInput.addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        if (!q) return renderIndex(posts);
+        const filtered = posts.filter(
+          (p) =>
+            (p.title || "").toLowerCase().includes(q) ||
+            (p.excerpt || "").toLowerCase().includes(q)
+        );
+        renderIndex(filtered);
+      });
+
+      // hashchange routing
+      window.addEventListener("hashchange", handleRouting);
+
+      // initial load
+      fetchIndex();
+    </script>
+  </body>
+</html>
