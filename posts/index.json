@@ -1,8 +1,11 @@
 [
   {
-    "slug": "hello-world",
-    "title": "Hello, world!",
-    "date": "2025-11-12",
-    "excerpt": "First post from GitHub Pages demo"
+    "slug": "How-I-Finally-Understood-TCP-and-UDP",
+    "title": "How I Finally Understood TCP and UDP",
+    "date": "2025-11-06",
+    "excerpt": "First post from GitHub Pages demo",
+    "tags": ["networking", "tcp", "udp", "kernel", "learning", "reflection"],
+    "category": "story",
+    "summary": "A reflective journey into how data actually travels from an app through the kernel to the network — and what makes TCP and UDP fundamentally different."
   }
 ]
