@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://dhruvbhartia07.github.io/sitemap.xml
