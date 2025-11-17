@@ -3,7 +3,6 @@ description: "Reflections and explorations in DevOps, networking, and technology
 url: "https://dhruvbhartia07.github.io"
 theme: minima
 baseurl: ""
-favicon: /favicon.png
 author: "Dhruv Bhartia"
 plugins:
   - jekyll-sitemap
