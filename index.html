@@ -1,477 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Simple GitHub Pages Blog</title>
-    <meta
-      name="description"
-      content="Lightweight static blog for GitHub Pages using markdown in /posts"
-    />
-    <style>
-      :root {
-        --bg: #0f1724;
-        --card: #0b1020;
-        --muted: #9aa4b2;
-        --accent: #7dd3fc;
-        --glass: rgba(255, 255, 255, 0.03);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial;
-        margin: 0;
-        background: linear-gradient(180deg, #071226 0%, #07172a 100%);
-        color: #e6eef6;
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      .wrap {
-        max-width: 1100px;
-        margin: 36px auto;
-        padding: 20px;
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 20px;
-      }
-      .brand {
-        font-weight: 700;
-        font-size: 18px;
-        margin-bottom: 12px;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      /* Sidebar */
-      .sidebar {
-        background: var(--card);
-        padding: 16px;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
-      }
-      .search {
-        display: flex;
-        margin-bottom: 12px;
-      }
-      .search input {
-        flex: 1;
-        padding: 8px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        background: var(--glass);
-        color: inherit;
-      }
-      .post-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        max-height: 70vh;
-        overflow: auto;
-        padding-right: 6px;
-      }
-      .post-item {
-        padding: 10px;
-        border-radius: 8px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.01),
-          transparent
-        );
-        cursor: pointer;
-      }
-      .post-item small {
-        display: block;
-        color: var(--muted);
-        margin-top: 6px;
-      }
+<title>Dhruv Bhartia | Platform / DevOps Engineer</title>
 
-      /* Main */
-      .main {
-        background: var(--card);
-        padding: 24px;
-        border-radius: 12px;
-        min-height: 60vh;
-      }
-      .post-title {
-        font-size: 28px;
-        margin: 0 0 6px;
-      }
-      .post-meta {
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-      .content {
-        line-height: 1.7;
-        color: #dbeaf8;
-      }
-      .content h1,
-      .content h2,
-      .content h3 {
-        color: #fff;
-      }
-      .content pre {
-        background: #061222;
-        padding: 12px;
-        border-radius: 8px;
-        overflow: auto;
-      }
-      .content code {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 2px 6px;
-        border-radius: 6px;
-      }
+<script src="https://cdn.tailwindcss.com"></script>
 
-      /* Responsive */
-      @media (max-width: 880px) {
-        .wrap {
-          grid-template-columns: 1fr;
-        }
-        .sidebar {
-          order: 2;
-        }
-        .main {
-          order: 1;
-        }
-      }
+<style>
+html {
+scroll-behavior: smooth;
+}
+</style>
 
-      /* small extras */
-      .no-post {
-        color: var(--muted);
-        text-align: center;
-        padding: 40px;
-      }
-      .footer {
-        margin-top: 18px;
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .tag {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: rgba(125, 211, 252, 0.06);
-        color: var(--accent);
-        margin-right: 6px;
-        font-size: 12px;
-      }
+</head>
 
-      /* Custom code css */
-      pre {
-        position: relative;
-        background: #f6f8fa;
-        padding: 1em;
-        border-radius: 8px;
-      }
+<body class="bg-gray-950 text-gray-200">
 
-      .copy-btn {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: #007acc;
-        color: white;
-        border: none;
-        padding: 4px 8px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 0.8em;
-      }
-      .copy-btn:hover {
-        background: #005fa3;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <aside class="sidebar">
-        <div class="brand">
-          My Blog
-          <span style="font-weight: 400; color: var(--muted); font-size: 12px"
-            >— static + markdown</span
-          >
-        </div>
-        <div class="search">
-          <input id="search" placeholder="Search posts (title / excerpt)" />
-        </div>
-        <div id="postList" class="post-list" aria-live="polite"></div>
-        <div class="footer">
-          Put markdown files under <code>/posts</code>. See comments at top of
-          index.html for examples.
-        </div>
-      </aside>
+<!-- Navbar -->
+<header class="sticky top-0 backdrop-blur bg-gray-950/80 border-b border-gray-800">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-      <main class="main">
-        <div id="postArea">
-          <div id="welcome" class="no-post">
-            <h2>Welcome 👋</h2>
-            <p>
-              Create a <code>/posts/index.json</code> and add markdown files
-              under <code>/posts</code> to publish posts.
-            </p>
-            <p>Click a post in the left column to read it.</p>
-          </div>
-        </div>
-      </main>
-    </div>
+<h1 class="text-lg font-semibold">Dhruv Bhartia</h1>
 
-    <script>
-      // Minimal static-blog client
-      const POST_INDEX = "/posts/index.json";
-      const postListEl = document.getElementById("postList");
-      const postArea = document.getElementById("postArea");
-      const searchInput = document.getElementById("search");
+<nav class="space-x-6 text-sm">
+<a href="#home" class="hover:text-indigo-400">Home</a>
+<a href="#projects" class="hover:text-indigo-400">Projects</a>
+<a href="#blog" class="hover:text-indigo-400">Blog</a>
+<a href="#contact" class="hover:text-indigo-400">Contact</a>
+</nav>
 
-      let posts = [];
+</div>
+</header>
 
-      async function fetchIndex() {
-        try {
-          const r = await fetch(POST_INDEX);
-          if (!r.ok) throw new Error("index.json not found");
-          posts = await r.json();
-          renderIndex(posts);
-          handleRouting();
-        } catch (err) {
-          postListEl.innerHTML =
-            '<div style="color:var(--muted);padding:6px">No posts/index.json found — create one under /posts</div>';
-          console.warn(err);
-        }
-      }
 
-      function renderIndex(list) {
-        if (!list || list.length === 0) {
-          postListEl.innerHTML =
-            '<div style="color:var(--muted)">No posts yet</div>';
-          return;
-        }
-        postListEl.innerHTML = "";
-        list.sort((a, b) => new Date(b.date) - new Date(a.date));
-        list.forEach((p) => {
-          const div = document.createElement("div");
-          div.className = "post-item";
-          div.innerHTML = `<strong>${escapeHtml(
-            p.title
-          )}</strong><small>${escapeHtml(p.date)} — ${escapeHtml(
-            p.summary || ""
-          )}</small>`;
-          div.onclick = () => {
-            navigateToPost(p.slug);
-          };
-          postListEl.appendChild(div);
-        });
-      }
+<!-- HERO -->
+<section id="home" class="max-w-6xl mx-auto px-6 py-32 text-center">
 
-      function navigateToPost(slug) {
-        location.hash = "#/post/" + slug;
-        // handleRouting will pick it up
-      }
+<h2 class="text-4xl md:text-5xl font-bold mb-6">
+Platform / DevOps Engineer
+</h2>
 
-      async function handleRouting() {
-        const hash = location.hash;
-        if (hash.startsWith("#/post/")) {
-          const slug = hash.replace("#/post/", "");
-          await showPost(slug);
-        } else {
-          showWelcome();
-        }
-      }
+<p class="text-gray-400 max-w-xl mx-auto mb-10">
+I build scalable infrastructure, automate deployments, and design reliable systems.
+</p>
 
-      async function showPost(slug) {
-        const meta = posts.find((p) => p.slug === slug);
-        try {
-          const res = await fetch(`/posts/${slug}.md`);
-          if (!res.ok) throw new Error("post not found");
-          console.log(`Title: ${meta?.title}\nSlug: ${slug}`);
-          const md = await res.text();
-          const html = convertMarkdown(md);
-          postArea.innerHTML = `
-          <article>
-            <h1 class="post-title">${escapeHtml(meta?.title || slug)}</h1>
-            <div class="post-meta">${escapeHtml(meta?.date || "")}</div>
-            <div class="content">${html}</div>
-          </article>
-        `;
-          window.scrollTo(0, 0);
-          applyCustomListeners();
-        } catch (err) {
-          postArea.innerHTML = `<div class="no-post">Can't load post <strong>${escapeHtml(
-            slug
-          )}</strong>. Check /posts/${slug}.md and /posts/index.json</div>`;
-          console.warn(err);
-        }
-      }
+<div class="flex justify-center gap-4">
 
-      function showWelcome() {
-        const el = document.getElementById("welcome");
-        postArea.innerHTML = "";
-        postArea.appendChild(el);
-      }
+<a href="#projects"
+class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-medium">
+View Projects
+</a>
 
-      // Very small markdown -> HTML converter. Not exhaustive but useful for simple posts.
-      function convertMarkdown(md) {
-        // Escape HTML first
-        let out = md
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
+<a href="https://dhruvbhartia07.hashnode.dev/"
+target="_blank"
+class="border border-gray-700 hover:border-indigo-400 px-6 py-3 rounded-lg">
+Read Blog
+</a>
 
-        // Code blocks ```lang\n...```
-        // out = out.replace(
-        //   /```([^\n]*)\n([\s\S]*?)```/g,
-        //   function (_, lang, code) {
-        //     return `<pre><code>${code.replace(/&lt;/g, "&lt;")}</code></pre>`;
-        //   }
-        // );
+</div>
 
-        const codeBlocks = [];
-        out = out.replace(
-          /```([^\n]*)\n([\s\S]*?)```/g,
-          function (_, lang, code) {
-            const placeholder = `@@CODEBLOCK_${codeBlocks.length}@@`;
-            codeBlocks.push({
-              lang,
-              html: `<pre><code>${code}</code></pre>`,
-            });
-            return placeholder;
-          }
-        );
+</section>
 
-        // Headings #### to <h4>
-        out = out.replace(/^######\s?(.*)$/gm, "<h6>$1</h6>");
-        out = out.replace(/^#####\s?(.*)$/gm, "<h5>$1</h5>");
-        out = out.replace(/^####\s?(.*)$/gm, "<h4>$1</h4>");
-        out = out.replace(/^###\s?(.*)$/gm, "<h3>$1</h3>");
-        out = out.replace(/^##\s?(.*)$/gm, "<h2>$1</h2>");
-        out = out.replace(/^#\s?(.*)$/gm, "<h1>$1</h1>");
 
-        // Bold **text** and italic *text*
-        out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-        out = out.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto px-6 py-24">
 
-        // Place the code blocks back
-        out = codeBlocks.reduce((acc, { html }, i) => {
-          return acc.replace(`@@CODEBLOCK_${i}@@`, html);
-        }, out);
+<h3 class="text-3xl font-bold mb-12 text-center">Projects</h3>
 
-        // Add a copy button to code
-        out = out.replace(
-          /<pre><code>([\s\S]*?)<\/code><\/pre>/g,
-          `<pre><code>$1</code><button class="copy-btn">Copy</button></pre>`
-        );
+<div class="grid md:grid-cols-3 gap-8">
 
-        // Inline code `x`
-        out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+<h4 class="font-semibold mb-2">DevOps Automation</h4>
+<p class="text-gray-400 text-sm mb-4">
+Infrastructure automation using Terraform and CI/CD pipelines.
+</p>
+<a href="https://github.com/dhruvbhartia07"
+target="_blank"
+class="text-indigo-400 text-sm">
+View on GitHub →
+</a>
+</div>
 
-        // Links [text](url)
-        out = out.replace(
-          /\[([^\]]+)\]\(([^)]+)\)/g,
-          '<a href="$2" target="_blank" rel="noopener">$1</a>'
-        );
+<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+<h4 class="font-semibold mb-2">Kubernetes Deployment</h4>
+<p class="text-gray-400 text-sm mb-4">
+Containerized microservices deployed using Kubernetes and Helm.
+</p>
+<a href="https://github.com/dhruvbhartia07"
+target="_blank"
+class="text-indigo-400 text-sm">
+View on GitHub →
+</a>
+</div>
 
-        // Ordered list lines starting with 1. 2. etc
-        out = out.replace(
-          /^(?:\s*\d+\.\s+.*(?:\r?\n|$))+(?=\r?\n|$)/gm,
-          function (match) {
-            const items = match
-              .split(/\r?\n/)
-              .map((line) => line.trim())
-              .filter(Boolean)
-              .map((line) => line.replace(/^\s*\d+\.\s+/, "")); // remove '1. ', '2. ', etc.
+<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+<h4 class="font-semibold mb-2">Monitoring Stack</h4>
+<p class="text-gray-400 text-sm mb-4">
+Observability stack using Prometheus, Grafana and alerting systems.
+</p>
+<a href="https://github.com/dhruvbhartia07"
+target="_blank"
+class="text-indigo-400 text-sm">
+View on GitHub →
+</a>
+</div>
 
-            return (
-              "<ol>\n" +
-              items.map((i) => `<li>${i}</li>`).join("\n") +
-              "\n</ol>\n"
-            );
-          }
-        );
+</div>
 
-        // Unordered lists: lines starting with - or *
-        out = out.replace(
-          /^(?:[ \t]*[-*][ \t]+.*(?:\r?\n|$))+(?=\r?\n|$)/gm,
-          function (match) {
-            const items = match
-              .split(/\r?\n/)
-              .map((line) => line.trim())
-              .filter(Boolean) // remove any stray empty strings
-              .map((line) => line.replace(/^\s*[-*]\s+/, "")); // remove "- " or "* "
+</section>
 
-            return (
-              "<ul>\n" +
-              items.map((i) => `<li>${i}</li>`).join("\n") +
-              "\n</ul>\n"
-            );
-          }
-        );
 
-        // Paragraphs (blanks separate paragraphs)
-        // out = out.replace(
-        //   /^(?!<h|<ul|<ol|<pre|<blockquote|<img|<p|<li)(.+)$/gm,
-        //   function (m) {
-        //     // leave block-level tags alone
-        //     if (/^(<h|<ul|<ol|<pre|<blockquote|<p|<li)/.test(m)) return m;
-        //     return "<p>" + m + "</p>";
-        //   }
-        // );
+<!-- BLOG -->
+<section id="blog" class="bg-gray-900/40 py-24">
 
-        // Simple typographic replacements for readability
-        out = out.replace(/(\n){2,}/g, "<br/>");
+<div class="max-w-6xl mx-auto px-6">
 
-        return out;
-      }
+<h3 class="text-3xl font-bold mb-12 text-center">Blog</h3>
 
-      // tiny escape
-      function escapeHtml(s) {
-        console.log(`Title: ${s}`);
-        return String(s || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-      }
+<div class="grid md:grid-cols-3 gap-8">
 
-      // Search
-      searchInput.addEventListener("input", (e) => {
-        const q = e.target.value.toLowerCase().trim();
-        if (!q) return renderIndex(posts);
-        const filtered = posts.filter(
-          (p) =>
-            (p.title || "").toLowerCase().includes(q) ||
-            (p.summary || "").toLowerCase().includes(q)
-        );
-        renderIndex(filtered);
-      });
+<a href="https://dhruvbhartia07.hashnode.dev/" target="_blank"
+class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
 
-      // hashchange routing
-      window.addEventListener("hashchange", handleRouting);
+<h4 class="font-semibold mb-2">DevOps Insights</h4>
+<p class="text-gray-400 text-sm">
+Thoughts and tutorials about DevOps, infrastructure, and platform engineering.
+</p>
 
-      // initial load
-      fetchIndex();
+<p class="text-indigo-400 mt-4 text-sm">Read on Hashnode →</p>
 
-      function applyCustomListeners() {
-        document.querySelectorAll(".copy-btn").forEach((button) => {
-          button.addEventListener("click", () => {
-            const code = button.previousElementSibling.innerText;
-            console.log(code);
-            navigator.clipboard.writeText(code);
-            button.textContent = "Copied!";
-            setTimeout(() => (button.textContent = "Copy"), 2000);
-          });
-        });
-        console.log(document);
-      }
-      applyCustomListeners();
-    </script>
-    <script>
-      document.querySelectorAll(".copy-btn").forEach((button) => {
-        console.log(button);
-        button.addEventListener("click", () => {
-          const code = button.previousElementSibling.innerText;
-          console.log(code);
-          navigator.clipboard.writeText(code);
-          button.textContent = "Copied!";
-          setTimeout(() => (button.textContent = "Copy"), 2000);
-        });
-      });
-    </script>
-  </body>
+</a>
+
+<a href="https://dhruvbhartia07.hashnode.dev/" target="_blank"
+class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
+
+<h4 class="font-semibold mb-2">Infrastructure Lessons</h4>
+<p class="text-gray-400 text-sm">
+Real-world lessons from building and operating production systems.
+</p>
+
+<p class="text-indigo-400 mt-4 text-sm">Read on Hashnode →</p>
+
+</a>
+
+<a href="https://dhruvbhartia07.hashnode.dev/" target="_blank"
+class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
+
+<h4 class="font-semibold mb-2">Automation & CI/CD</h4>
+<p class="text-gray-400 text-sm">
+Articles covering automation, pipelines and developer productivity.
+</p>
+
+<p class="text-indigo-400 mt-4 text-sm">Read on Hashnode →</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="max-w-3xl mx-auto px-6 py-24">
+
+<h3 class="text-3xl font-bold mb-10 text-center">Contact</h3>
+
+<form class="space-y-6">
+
+<input
+type="text"
+placeholder="Your Name"
+class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-indigo-500">
+
+<input
+type="email"
+placeholder="Your Email"
+class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-indigo-500">
+
+<textarea
+rows="5"
+placeholder="Message"
+class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-indigo-500"></textarea>
+
+<button
+type="submit"
+class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg w-full">
+Send Message
+</button>
+
+</form>
+
+<div class="text-center mt-10 text-gray-400 text-sm">
+
+<p>Email: contact@dhruvbhartia.com</p>
+
+<p class="mt-2">
+GitHub:
+<a href="https://github.com/dhruvbhartia07" class="text-indigo-400">
+github.com/dhruvbhartia07
+</a>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
+
+© 2026 Dhruv Bhartia
+
+</footer>
+
+</body>
 </html>
