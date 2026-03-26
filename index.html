@@ -102,8 +102,10 @@ Connect
 
   <!-- Kubernetes -->
   <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
-    <h4 class="font-semibold mb-3">Kubernetes Behavior Under High Load</h4>
-
+    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left">
+    <h4 class="font-semibold">Kubernetes Failure Under Load</h4>
+  </button>
+<div class="hidden mt-4 text-sm text-gray-400">
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Under load, apps became unresponsive. No HPA initially.
@@ -128,6 +130,7 @@ Connect
       For bursty or async workloads, CPU/memory are weak signals of demand.
       Scaling decisions must align with how the workload behaves, not just what metrics are available.
     </p>
+</div>
   </div>
 
   <!-- CI/CD -->
