@@ -30,6 +30,7 @@ scroll-behavior: smooth;
     <nav class="hidden md:flex space-x-6 text-sm">
       <a href="#home" class="hover:text-indigo-400">Home</a>
       <a href="#work" class="hover:text-indigo-400">Work</a>
+      <a href="#learning" class="hover:text-indigo-400">Learning</a>
       <a href="#blog" class="hover:text-indigo-400">Blog</a>
       <a href="#contact" class="hover:text-indigo-400">Contact</a>
     </nav>
@@ -45,6 +46,7 @@ scroll-behavior: smooth;
   <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 text-sm">
     <a href="#home" class="block hover:text-indigo-400">Home</a>
     <a href="#work" class="block hover:text-indigo-400">Work</a>
+    <a href="#learning" class="block hover:text-indigo-400">Learning</a>
     <a href="#blog" class="block hover:text-indigo-400">Blog</a>
     <a href="#contact" class="block hover:text-indigo-400">Contact</a>
   </div>
@@ -90,11 +92,163 @@ Connect
 
 </section>
 
-
-<!-- WORK & LEARNING -->
+  <!-- SYSTEMS -->
 <section id="work" class="max-w-6xl mx-auto px-6 py-24">
 
-<h3 class="text-3xl font-bold mb-12 text-center">Work & Learning</h3>
+<h3 class="text-3xl font-bold mb-12 text-center">Systems I've Worked On</h3>
+
+<!-- 🔥 PRIMARY (Top 2) -->
+<div class="grid md:grid-cols-2 gap-8 mb-12">
+
+  <!-- Kubernetes -->
+  <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
+    <h4 class="font-semibold mb-3">Kubernetes Behavior Under High Load</h4>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Problem</strong><br>
+      Under load, apps became unresponsive. No HPA initially.
+      Even after scaling, traffic didn't distribute as expected and pods (~60–70s startup on Fargate) came too late.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>What I did</strong><br>
+      Introduced HPA and redesigned load testing to include scaling behavior.
+      Identified that CPU/memory signals lag real traffic patterns.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Outcome</strong><br>
+      HPA improved stability (~80%), but spike loads still broke the system.
+      Realization: pre-scaling and event-driven scaling were required.
+    </p>
+
+    <p class="text-gray-400 text-sm">
+      <strong>Learning</strong><br>
+      Autoscaling is reactive, not instantaneous.
+      For bursty or async workloads, CPU/memory are weak signals of demand.
+      Scaling decisions must align with how the workload behaves, not just what metrics are available.
+    </p>
+  </div>
+
+  <!-- CI/CD -->
+  <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
+    <h4 class="font-semibold mb-3">CI/CD Standardization Across Services</h4>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Problem</strong><br>
+      Dozens of microservices had separate pipelines. Any change meant updating every repo - and missed updates were discovered late.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>What I did</strong><br>
+      Initially tried scripting updates across repos (didn't scale).
+      Moved to shared pipeline libraries and reduced flows into ~3–4 standard patterns.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Outcome</strong><br>
+      Pipeline changes became centralized. New services only needed a minimal import - no pipeline setup/testing overhead.
+    </p>
+
+    <p class="text-gray-400 text-sm">
+      <strong>Learning</strong><br>
+      Automating repeated tasks is not the same as solving duplication.
+      If duplication exists, automate-after-abstraction - not before.
+    </p>
+  </div>
+
+</div>
+
+<!-- ⚙️ SECONDARY -->
+<div class="grid md:grid-cols-3 gap-8">
+
+  <!-- CLI -->
+  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+    <h4 class="font-semibold mb-3">Internal CLI for Container Build Standardization</h4>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Problem</strong><br>
+      Ephemeral CI runners (DIND) needed frequent updates with strict security constraints.
+      Using Alpine reduced vulnerabilities, but introduced issues (musl + unofficial Node support).
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>What I did</strong><br>
+      Built an internal CLI to generate/update runner images with required dependencies (Node, Helm, etc.) via arguments.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Outcome</strong><br>
+      Removed manual image maintenance and made updates repeatable under security constraints.
+    </p>
+
+    <p class="text-gray-400 text-sm">
+      <strong>Learning</strong><br>
+      When constraints stack (security, compatibility, tooling), pipelines become brittle.
+      Encapsulating complexity in a dedicated tool is often more stable than pushing it into CI logic.
+    </p>
+  </div>
+
+  <!-- Scaling mismatch -->
+  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+    <h4 class="font-semibold mb-3">Scaling Mismatch: When HPA Was the Wrong Model</h4>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Problem</strong><br>
+      AI workloads (file uploads, async processing) didn't scale well with HPA.
+      CPU/memory signals didn't reflect actual pressure.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>What I did</strong><br>
+      Analyzed scaling gaps during load tests and explored alternatives beyond HPA/VPA.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Outcome</strong><br>
+      Identified that event-driven scaling (e.g., KEDA) fits the workload better, even though not implemented at the time.
+    </p>
+
+    <p class="text-gray-400 text-sm">
+      <strong>Learning</strong><br>
+      Choosing the wrong scaling signal is worse than no scaling.
+      The real problem wasn't tuning HPA - it was assuming the problem fit HPA at all.
+    </p>
+  </div>
+
+  <!-- Onboarding -->
+  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+    <h4 class="font-semibold mb-3">Reducing Tool Onboarding Time</h4>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Problem</strong><br>
+      Manual onboarding across tools took 2–3 days per request.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>What I did</strong><br>
+      Automated onboarding using tool APIs into a self-service flow.
+    </p>
+
+    <p class="text-gray-400 text-sm mb-2">
+      <strong>Outcome</strong><br>
+      Reduced setup time to under 5 minutes.
+    </p>
+
+    <p class="text-gray-400 text-sm">
+      <strong>Learning</strong><br>
+      Most developer friction isn't technical - it's process latency.
+    </p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- WORK & LEARNING -->
+<section id="learning" class="max-w-6xl mx-auto px-6 py-24">
+
+<h3 class="text-3xl font-bold mb-12 text-center">Learning</h3>
 
 <div class="grid md:grid-cols-3 gap-8">
 
@@ -143,7 +297,7 @@ Automation systems
 target="_blank"
 class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
 
-<h4 class="font-semibold mb-2">Docker vs systemd — My Mental Model Shift</h4>
+<h4 class="font-semibold mb-2">Docker vs systemd - My Mental Model Shift</h4>
 <p class="text-gray-400 text-sm">
 Understanding why containers change how we think about processes and systems.
 </p>
@@ -188,7 +342,7 @@ Building a mental model of Git instead of memorizing commands.
 <!-- CONTACT -->
 <section id="contact" class="max-w-3xl mx-auto px-6 py-24 text-center">
 
-<h3 class="text-3xl font-bold mb-8">Let’s Connect</h3>
+<h3 class="text-3xl font-bold mb-8">Let's Connect</h3>
 
 <p class="text-gray-400 mb-8">
 Open to discussions around DevOps, Kubernetes, and platform engineering.
