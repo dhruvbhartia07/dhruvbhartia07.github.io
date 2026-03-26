@@ -107,9 +107,6 @@ Connect
 
    <!-- MOBILE PREVIEW -->
   <div class="text-gray-400 text-sm md:hidden">
-    <p class="mb-2">
-      Under load, apps became unresponsive. No HPA initially...
-    </p>
 
     <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
       Read more →
@@ -117,12 +114,12 @@ Connect
   </div>
    <!-- FULL CONTENT -->
    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
-    <p class="text-gray-400 text-sm mb-2">
+
+     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Under load, apps became unresponsive. No HPA initially.
       Even after scaling, traffic didn't distribute as expected and pods (~60–70s startup on Fargate) came too late.
     </p>
-
     <p class="text-gray-400 text-sm mb-2">
       <strong>What I did</strong><br>
       Introduced HPA and redesigned load testing to include scaling behavior.
@@ -145,9 +142,18 @@ Connect
 </div>
 
   <!-- CI/CD -->
-  <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
+  <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
     <h4 class="font-semibold mb-3">CI/CD Standardization Across Services</h4>
 
+    <!-- MOBILE PREVIEW -->
+    <div class="text-gray-400 text-sm md:hidden">
+      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
+        Read more →
+      </button>
+    </div>
+
+    <!-- FULL CONTENT -->
+    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Dozens of microservices had separate pipelines. Any change meant updating every repo - and missed updates were discovered late.
@@ -169,6 +175,7 @@ Connect
       Automating repeated tasks is not the same as solving duplication.
       If duplication exists, automate-after-abstraction - not before.
     </p>
+    </dev>
   </div>
 
 </div>
