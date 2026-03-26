@@ -175,7 +175,7 @@ Connect
       Automating repeated tasks is not the same as solving duplication.
       If duplication exists, automate-after-abstraction - not before.
     </p>
-    </dev>
+    </div>
   </div>
 
 </div>
@@ -185,8 +185,19 @@ Connect
 
   <!-- CLI -->
   <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+
+    <!-- Title -->
     <h4 class="font-semibold mb-3">Internal CLI for Container Build Standardization</h4>
 
+    <!-- MOBILE PREVIEW -->
+    <div class="text-gray-400 text-sm md:hidden">
+      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
+        Read more →
+      </button>
+    </div>
+
+    <!-- FULL CONTENT -->
+    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Ephemeral CI runners (DIND) needed frequent updates with strict security constraints.
@@ -208,12 +219,22 @@ Connect
       When constraints stack (security, compatibility, tooling), pipelines become brittle.
       Encapsulating complexity in a dedicated tool is often more stable than pushing it into CI logic.
     </p>
+    </div>
   </div>
 
   <!-- Scaling mismatch -->
   <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
     <h4 class="font-semibold mb-3">Scaling Mismatch: When HPA Was the Wrong Model</h4>
 
+    <!-- MOBILE PREVIEW -->
+    <div class="text-gray-400 text-sm md:hidden">
+      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
+        Read more →
+      </button>
+    </div>
+
+    <!-- FULL CONTENT -->
+    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       AI workloads (file uploads, async processing) didn't scale well with HPA.
@@ -235,12 +256,23 @@ Connect
       Choosing the wrong scaling signal is worse than no scaling.
       The real problem wasn't tuning HPA - it was assuming the problem fit HPA at all.
     </p>
+    </div>
   </div>
 
   <!-- Onboarding -->
   <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
     <h4 class="font-semibold mb-3">Reducing Tool Onboarding Time</h4>
 
+     <!-- MOBILE PREVIEW -->
+      <div class="text-gray-400 text-sm md:hidden">
+        <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
+          Read more →
+        </button>
+      </div>
+
+    <!-- FULL CONTENT -->
+    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
+        
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Manual onboarding across tools took 2–3 days per request.
@@ -260,6 +292,7 @@ Connect
       <strong>Learning</strong><br>
       Most developer friction isn't technical - it's process latency.
     </p>
+    </div>
   </div>
 
 </div>
