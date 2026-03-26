@@ -403,5 +403,17 @@ Open to discussions around DevOps, Kubernetes, and platform engineering.
   });
 </script>
 
+  <script>
+function toggleCard(btn) {
+  const content = btn.parentElement.nextElementSibling;
+
+  content.classList.toggle('hidden');
+
+  btn.innerText = content.classList.contains('hidden')
+    ? 'Read more →'
+    : 'Show less ↑';
+}
+</script>
+
 </body>
 </html>
