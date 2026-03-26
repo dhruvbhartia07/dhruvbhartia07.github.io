@@ -101,11 +101,22 @@ Connect
 <div class="grid md:grid-cols-2 gap-8 mb-12">
 
   <!-- Kubernetes -->
-  <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
-    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left">
-    <h4 class="font-semibold">Kubernetes Failure Under Load</h4>
-  </button>
-<div class="hidden mt-4 text-sm text-gray-400">
+ <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
+   <!-- Title -->
+   <h4 class="font-semibold mb-2">Kubernetes Failure Under Load</h4>
+
+   <!-- MOBILE PREVIEW -->
+  <div class="text-gray-400 text-sm md:hidden">
+    <p class="mb-2">
+      Under load, apps became unresponsive. No HPA initially...
+    </p>
+
+    <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
+      Read more →
+    </button>
+  </div>
+   <!-- FULL CONTENT -->
+   <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
     <p class="text-gray-400 text-sm mb-2">
       <strong>Problem</strong><br>
       Under load, apps became unresponsive. No HPA initially.
@@ -130,8 +141,8 @@ Connect
       For bursty or async workloads, CPU/memory are weak signals of demand.
       Scaling decisions must align with how the workload behaves, not just what metrics are available.
     </p>
-</div>
   </div>
+</div>
 
   <!-- CI/CD -->
   <div class="bg-gray-900 p-6 rounded-xl border border-indigo-500 hover:scale-105 transition">
