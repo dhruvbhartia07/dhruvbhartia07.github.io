@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Schedule a conversation with Dhruv Bhartia about DevOps, Kubernetes, platform engineering, and scalable systems."
+  >
+
+  <meta property="og:title" content="Let's Talk | Dhruv Bhartia">
+  <meta
+    property="og:description"
+    content="Schedule a conversation with Dhruv Bhartia."
+  >
+  <meta property="og:url" content="https://dhruvbhartia.com/meet">
+  <meta property="og:type" content="website">
+  <meta
+    property="og:image"
+    content="https://dhruvbhartia.com/images/og-image.png"
+  >
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <title>Let's Talk | Dhruv Bhartia</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-gray-200 min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-gray-950/80 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- Logo -->
+      <a
+        href="/"
+        class="text-lg font-semibold hover:text-indigo-400 transition"
+      >
+        Dhruv Bhartia
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm">
+
+        <a href="/" class="hover:text-indigo-400 transition">
+          Home
+        </a>
+
+        <a href="/#work" class="hover:text-indigo-400 transition">
+          Work
+        </a>
+
+        <a href="/#blog" class="hover:text-indigo-400 transition">
+          Blog
+        </a>
+
+        <a href="/#contact" class="hover:text-indigo-400 transition">
+          Contact
+        </a>
+
+        <a
+          href="/meet"
+          class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg font-medium transition"
+        >
+          Let's Talk
+        </a>
+
+      </nav>
+
+      <!-- Mobile Button -->
+      <button
+        id="menu-btn"
+        class="md:hidden text-gray-300 focus:outline-none"
+        aria-label="Toggle navigation menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden px-6 pb-5 space-y-3 text-sm"
+    >
+
+      <a href="/" class="block hover:text-indigo-400 transition">
+        Home
+      </a>
+
+      <a href="/#work" class="block hover:text-indigo-400 transition">
+        Work
+      </a>
+
+      <a href="/#blog" class="block hover:text-indigo-400 transition">
+        Blog
+      </a>
+
+      <a href="/#contact" class="block hover:text-indigo-400 transition">
+        Contact
+      </a>
+
+      <a
+        href="/meet"
+        class="block text-center bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg font-medium transition"
+      >
+        Let's Talk
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- INTRO -->
+    <section class="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Let's Talk
+      </h1>
+
+      <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+        Have a question about DevOps, Kubernetes, platform engineering,
+        or just want to exchange ideas? Pick a time that works for you.
+      </p>
+
+    </section>
+
+
+    <!-- BOOKING -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+
+      <!--
+        DESKTOP / TABLET
+        Zoho calendar is embedded here.
+      -->
+      <div
+        class="hidden md:block rounded-xl border border-gray-700 overflow-hidden bg-gray-100"
+      >
+
+        <iframe
+          src="https://calendar.zoho.in/zc/view/slot-booking/0802123eeef8b902d6498f6f2fbbe1530000931d3b048395e24fb6f738309f8d7de5fc544c43e0f3dd9afa231c946549305299b8c1d1dd623d4a46db54af0f661355"
+          title="Appointment Booking"
+          class="block w-full border-0"
+          style="height: 820px;"
+          loading="lazy"
+        ></iframe>
+
+      </div>
+
+
+      <!--
+        MOBILE
+        Instead of fighting iframe touch/scroll behaviour,
+        open Zoho's booking page directly.
+      -->
+      <div
+        class="md:hidden bg-gray-900 border border-gray-800 rounded-xl p-8 text-center"
+      >
+
+        <div
+          class="w-14 h-14 mx-auto mb-6 rounded-xl bg-gray-950 border border-gray-800 flex items-center justify-center"
+        >
+          <span class="text-2xl">📅</span>
+        </div>
+
+        <h2 class="text-xl font-semibold mb-3">
+          Choose a time
+        </h2>
+
+        <p class="text-gray-400 text-sm leading-relaxed max-w-sm mx-auto mb-7">
+          View my availability and pick a time that works for you.
+        </p>
+
+        <a
+          href="https://calendar.zoho.in/zc/view/slot-booking/0802123eeef8b902d6498f6f2fbbe1530000931d3b048395e24fb6f738309f8d7de5fc544c43e0f3dd9afa231c946549305299b8c1d1dd623d4a46db54af0f661355"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-medium transition"
+        >
+          Open booking calendar
+          <span>→</span>
+        </a>
+
+        <p class="text-gray-500 text-xs mt-4">
+          Opens the booking calendar in a new tab.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ALTERNATIVE CONTACT -->
+    <section class="max-w-3xl mx-auto px-6 pb-24 text-center">
+
+      <div class="border-t border-gray-800 pt-10">
+
+        <p class="text-gray-500 text-sm mb-6">
+          Prefer async communication?
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-5 text-sm">
+
+          <!-- Email -->
+          <a
+            href="mailto:hello@dhruvbhartia.com"
+            class="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <span>📧</span>
+            <span>hello@dhruvbhartia.com</span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://linkedin.com/in/dhruv-bhartia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <span>💼</span>
+            <span>LinkedIn</span>
+          </a>
+
+          <!-- X -->
+          <a
+            href="https://x.com/dhruvbhartia07"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-indigo-300 transition"
+          >
+            <span>🐦</span>
+            <span>X / Twitter</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
+    © 2026 Dhruv Bhartia
+  </footer>
+
+
+  <!-- MOBILE MENU -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,465 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:image" content="https://dhruvbhartia.com/images/og-image.png" />
-<meta name="description" content="DevOps Engineer portfolio" />
-<meta property="og:title" content="Dhruv Bhartia" />
-<meta property="og:description" content="DevOps Engineer portfolio" />
-<meta property="og:url" content="https://dhruvbhartia.com/" />
-<meta property="og:type" content="website" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dhruv Bhartia | DevOps Engineer | Kubernetes & Scalable Systems</title>
+  <meta property="og:image" content="https://dhruvbhartia.com/images/og-image.png" />
+  <meta name="description" content="DevOps Engineer portfolio" />
+  <meta property="og:title" content="Dhruv Bhartia" />
+  <meta property="og:description" content="DevOps Engineer portfolio" />
+  <meta property="og:url" content="https://dhruvbhartia.com/" />
+  <meta property="og:type" content="website" />
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<style>
-html {
-scroll-behavior: smooth;
-}
-</style>
+  <title>Dhruv Bhartia | DevOps Engineer | Kubernetes & Scalable Systems</title>
 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-950 text-gray-200">
 
-<!-- NAVBAR -->
-<header class="sticky top-0 backdrop-blur bg-gray-950/80 border-b border-gray-800">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-gray-950/80 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Logo -->
-    <h1 class="text-lg font-semibold">Dhruv Bhartia</h1>
+      <!-- Logo -->
+      <a href="#home" class="text-lg font-semibold hover:text-indigo-400 transition">
+        Dhruv Bhartia
+      </a>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6 text-sm">
-      <a href="#home" class="hover:text-indigo-400">Home</a>
-      <a href="#work" class="hover:text-indigo-400">Work</a>
-      <!-- <a href="#learning" class="hover:text-indigo-400">Learning</a> -->
-      <a href="#blog" class="hover:text-indigo-400">Blog</a>
-      <a href="#contact" class="hover:text-indigo-400">Contact</a>
-    </nav>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm">
+        <a href="#home" class="hover:text-indigo-400 transition">Home</a>
+        <a href="#work" class="hover:text-indigo-400 transition">Work</a>
+        <a href="#blog" class="hover:text-indigo-400 transition">Blog</a>
+        <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
 
-    <!-- Mobile Button -->
-    <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
-      ☰
-    </button>
+        <!-- Primary CTA -->
+        <a
+          href="/meet"
+          class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg font-medium transition"
+        >
+          Let's Talk
+        </a>
+      </nav>
 
-  </div>
+      <!-- Mobile Button -->
+      <button
+        id="menu-btn"
+        class="md:hidden text-gray-300 focus:outline-none"
+        aria-label="Toggle navigation menu"
+      >
+        ☰
+      </button>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 text-sm">
-    <a href="#home" class="block hover:text-indigo-400">Home</a>
-    <a href="#work" class="block hover:text-indigo-400">Work</a>
-    <!-- <a href="#learning" class="block hover:text-indigo-400">Learning</a> -->
-    <a href="#blog" class="block hover:text-indigo-400">Blog</a>
-    <a href="#contact" class="block hover:text-indigo-400">Contact</a>
-  </div>
-</header>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 space-y-3 text-sm">
+      <a href="#home" class="block hover:text-indigo-400 transition">Home</a>
+      <a href="#work" class="block hover:text-indigo-400 transition">Work</a>
+      <a href="#blog" class="block hover:text-indigo-400 transition">Blog</a>
+      <a href="#contact" class="block hover:text-indigo-400 transition">Contact</a>
+
+      <a
+        href="/meet"
+        class="block text-center bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg font-medium transition"
+      >
+        Let's Talk
+      </a>
+    </div>
+  </header>
 
 
-<!-- HERO -->
-<section id="home" class="max-w-6xl mx-auto px-6 py-32 text-center">
+  <!-- HERO -->
+  <section id="home" class="max-w-6xl mx-auto px-6 py-32 text-center">
 
-    <img 
-  src="/images/profile.jpg"
-  alt="Dhruv Bhartia"
-  class="w-28 h-28 rounded-full mx-auto mb-6 border-2 border-gray-800"
-/>
+    <img
+      src="/images/profile.jpg"
+      alt="Dhruv Bhartia"
+      class="w-28 h-28 rounded-full mx-auto mb-6 border-2 border-gray-800"
+    />
 
-<h2 class="text-4xl md:text-5xl font-bold mb-6">
-Platform / DevOps Engineer
-</h2>
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Platform / DevOps Engineer
+    </h2>
 
-<p class="text-green-400 text-sm mb-4 font-medium">
-  ● Open to opportunities
-</p>
+    <p class="text-green-400 text-sm mb-4 font-medium">
+      ● Open to opportunities
+    </p>
 
-<p class="text-gray-400 max-w-xl mx-auto mb-10">
-Focused on Kubernetes, scalable systems, and building reliable infrastructure.
-Currently working towards Kubestronaut.
-</p>
+    <p class="text-gray-400 max-w-xl mx-auto mb-10">
+      Focused on Kubernetes, scalable systems, and building reliable infrastructure.
+      Currently working towards Kubestronaut.
+    </p>
 
-<div class="flex justify-center gap-4">
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
 
-<a href="https://blog.dhruvbhartia.com"
-target="_blank"
-class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-medium">
-Read Blog
-</a>
+      <a
+        href="https://blog.dhruvbhartia.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-medium transition"
+      >
+        Read Blog
+      </a>
 
-<a href="#contact"
-class="border border-gray-700 hover:border-indigo-400 px-6 py-3 rounded-lg">
-Connect
-</a>
+      <a
+        href="/meet"
+        class="border border-gray-700 hover:border-indigo-400 hover:text-indigo-300 px-6 py-3 rounded-lg transition"
+      >
+        Let's Talk
+      </a>
 
-</div>
+    </div>
 
-</section>
+  </section>
+
 
   <!-- SYSTEMS -->
-<section id="work" class="max-w-6xl mx-auto px-6 py-24">
+  <section id="work" class="max-w-6xl mx-auto px-6 py-24">
 
-<h3 class="text-3xl font-bold mb-12 text-center">Systems I've Worked On</h3>
+    <h3 class="text-3xl font-bold mb-12 text-center">
+      Systems I've Worked On
+    </h3>
 
-<!-- 🔥 PRIMARY (Top 2) -->
-<div class="grid md:grid-cols-2 gap-8 mb-12">
+    <!-- PRIMARY -->
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
 
-  <!-- Kubernetes -->
- <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-   <!-- Title -->
-   <h4 class="font-semibold mb-2">Kubernetes Failure Under Load</h4>
+      <!-- Kubernetes -->
+      <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
 
-   <!-- MOBILE PREVIEW -->
-  <div class="text-gray-400 text-sm md:hidden">
+        <h4 class="font-semibold mb-2">
+          Kubernetes Failure Under Load
+        </h4>
 
-    <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
-      Read more →
-    </button>
-  </div>
-   <!-- FULL CONTENT -->
-   <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
+        <!-- MOBILE PREVIEW -->
+        <div class="text-gray-400 text-sm md:hidden">
+          <button
+            onclick="toggleCard(this)"
+            class="text-indigo-400 text-sm"
+          >
+            Read more →
+          </button>
+        </div>
 
-     <p class="text-gray-400 text-sm mb-2">
-      <strong>Problem</strong><br>
-      Under load, apps became unresponsive. No HPA initially.
-      Even after scaling, traffic didn't distribute as expected and pods (~1.5-2min startup on Fargate) came too late.
-    </p>
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>What I did</strong><br>
-      Introduced HPA and redesigned load testing to include scaling behavior.
-      Identified that CPU/memory signals lag real traffic patterns.
-    </p>
+        <!-- FULL CONTENT -->
+        <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
 
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Outcome</strong><br>
-      HPA improved stability (~80%), but spike loads still broke the system.
-      Realization: pre-scaling and event-driven scaling were required.
-    </p>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Problem</strong><br>
+            Under load, apps became unresponsive. No HPA initially.
+            Even after scaling, traffic didn't distribute as expected and pods
+            (~1.5-2min startup on Fargate) came too late.
+          </p>
 
-    <p class="text-gray-400 text-sm">
-      <strong>Learning</strong><br>
-      Autoscaling is reactive, not instantaneous.
-      For bursty or async workloads, CPU/memory are weak signals of demand.
-      Scaling decisions must align with how the workload behaves, not just what metrics are available.
-    </p>
-  </div>
-</div>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>What I did</strong><br>
+            Introduced HPA and redesigned load testing to include scaling behavior.
+            Identified that CPU/memory signals lag real traffic patterns.
+          </p>
 
-  <!-- CI/CD -->
-  <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-    <h4 class="font-semibold mb-3">CI/CD Standardization Across Services</h4>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Outcome</strong><br>
+            HPA improved stability (~80%), but spike loads still broke the system.
+            Realization: pre-scaling and event-driven scaling were required.
+          </p>
 
-    <!-- MOBILE PREVIEW -->
-    <div class="text-gray-400 text-sm md:hidden">
-      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
-        Read more →
-      </button>
-    </div>
+          <p class="text-gray-400 text-sm">
+            <strong>Learning</strong><br>
+            Autoscaling is reactive, not instantaneous.
+            For bursty or async workloads, CPU/memory are weak signals of demand.
+            Scaling decisions must align with how the workload behaves, not just
+            what metrics are available.
+          </p>
 
-    <!-- FULL CONTENT -->
-    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Problem</strong><br>
-      Dozens of microservices had separate pipelines. Any change meant updating every repo - and missed updates were discovered late.
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>What I did</strong><br>
-      Initially tried scripting updates across repos (didn't scale).
-      Moved to shared pipeline libraries and reduced flows into ~3–4 standard patterns.
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Outcome</strong><br>
-      Pipeline changes became centralized. New services only needed a minimal import - no pipeline setup/testing overhead.
-    </p>
-
-    <p class="text-gray-400 text-sm">
-      <strong>Learning</strong><br>
-      Automating repeated tasks is not the same as solving duplication.
-      If duplication exists, automate-after-abstraction - not before.
-    </p>
-    </div>
-  </div>
-
-</div>
-
-<!-- ⚙️ SECONDARY -->
-<div class="grid md:grid-cols-3 gap-8">
-
-  <!-- CLI -->
-  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-
-    <!-- Title -->
-    <h4 class="font-semibold mb-3">Internal CLI for Container Build Standardization</h4>
-
-    <!-- MOBILE PREVIEW -->
-    <div class="text-gray-400 text-sm md:hidden">
-      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
-        Read more →
-      </button>
-    </div>
-
-    <!-- FULL CONTENT -->
-    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Problem</strong><br>
-      Ephemeral CI runners (DIND) needed frequent updates with strict security constraints.
-      Using Alpine reduced vulnerabilities, but introduced issues (musl + unofficial Node support).
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>What I did</strong><br>
-      Built an internal CLI to generate/update runner images with required dependencies (Node, Helm, etc.) via arguments.
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Outcome</strong><br>
-      Removed manual image maintenance and made updates repeatable under security constraints.
-    </p>
-
-    <p class="text-gray-400 text-sm">
-      <strong>Learning</strong><br>
-      When constraints stack (security, compatibility, tooling), pipelines become brittle.
-      Encapsulating complexity in a dedicated tool is often more stable than pushing it into CI logic.
-    </p>
-    </div>
-  </div>
-
-  <!-- Scaling mismatch -->
-  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-    <h4 class="font-semibold mb-3">Scaling Mismatch: When HPA Was the Wrong Model</h4>
-
-    <!-- MOBILE PREVIEW -->
-    <div class="text-gray-400 text-sm md:hidden">
-      <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
-        Read more →
-      </button>
-    </div>
-
-    <!-- FULL CONTENT -->
-    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Problem</strong><br>
-      AI workloads (file uploads, async processing) didn't scale well with HPA.
-      CPU/memory signals didn't reflect actual pressure.
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>What I did</strong><br>
-      Analyzed scaling gaps during load tests and explored alternatives beyond HPA/VPA.
-    </p>
-
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Outcome</strong><br>
-      Identified that event-driven scaling (e.g., KEDA) fits the workload better, even though not implemented at the time.
-    </p>
-
-    <p class="text-gray-400 text-sm">
-      <strong>Learning</strong><br>
-      Choosing the wrong scaling signal is worse than no scaling.
-      The real problem wasn't tuning HPA - it was assuming the problem fit HPA at all.
-    </p>
-    </div>
-  </div>
-
-  <!-- Onboarding -->
-  <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-    <h4 class="font-semibold mb-3">Reducing Tool Onboarding Time</h4>
-
-     <!-- MOBILE PREVIEW -->
-      <div class="text-gray-400 text-sm md:hidden">
-        <button onclick="toggleCard(this)" class="text-indigo-400 text-sm">
-          Read more →
-        </button>
+        </div>
       </div>
 
-    <!-- FULL CONTENT -->
-    <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
-        
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Problem</strong><br>
-      Manual onboarding across tools took 2–3 days per request.
-    </p>
 
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>What I did</strong><br>
-      Automated onboarding using tool APIs into a self-service flow.
-    </p>
+      <!-- CI/CD -->
+      <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
 
-    <p class="text-gray-400 text-sm mb-2">
-      <strong>Outcome</strong><br>
-      Reduced setup time to under 5 minutes.
-    </p>
+        <h4 class="font-semibold mb-3">
+          CI/CD Standardization Across Services
+        </h4>
 
-    <p class="text-gray-400 text-sm">
-      <strong>Learning</strong><br>
-      Most developer friction isn't technical - it's process latency.
-    </p>
+        <!-- MOBILE PREVIEW -->
+        <div class="text-gray-400 text-sm md:hidden">
+          <button
+            onclick="toggleCard(this)"
+            class="text-indigo-400 text-sm"
+          >
+            Read more →
+          </button>
+        </div>
+
+        <!-- FULL CONTENT -->
+        <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
+
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Problem</strong><br>
+            Dozens of microservices had separate pipelines. Any change meant
+            updating every repo - and missed updates were discovered late.
+          </p>
+
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>What I did</strong><br>
+            Initially tried scripting updates across repos (didn't scale).
+            Moved to shared pipeline libraries and reduced flows into ~3–4
+            standard patterns.
+          </p>
+
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Outcome</strong><br>
+            Pipeline changes became centralized. New services only needed a
+            minimal import - no pipeline setup/testing overhead.
+          </p>
+
+          <p class="text-gray-400 text-sm">
+            <strong>Learning</strong><br>
+            Automating repeated tasks is not the same as solving duplication.
+            If duplication exists, automate-after-abstraction - not before.
+          </p>
+
+        </div>
+      </div>
+
     </div>
-  </div>
-
-</div>
-
-</section>
-
-<!-- WORK & LEARNING -->
-<!-- <section id="learning" class="max-w-6xl mx-auto px-6 py-24">
-
-<h3 class="text-3xl font-bold mb-12 text-center">Learning</h3>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-<h4 class="font-semibold mb-3">Kubernetes Certifications</h4>
-<p class="text-gray-400 text-sm">
-CKA, CKAD<br>
-KCNA, KCSA<br>
-Preparing for CKS (Kubestronaut goal)
-</p>
-</div>
-
-<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-<h4 class="font-semibold mb-3">Current Focus</h4>
-<p class="text-gray-400 text-sm">
-Kubernetes Autoscaling<br>
-HPA / VPA fundamentals<br>
-Exploring KEDA
-</p>
-</div>
-
-<div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
-<h4 class="font-semibold mb-3">Exploration</h4>
-<p class="text-gray-400 text-sm">
-AI Agents in DevOps<br>
-Platform Engineering<br>
-Automation systems
-</p>
-</div>
-
-</div>
-
-</section> -->
 
 
-<!-- BLOG -->
-<section id="blog" class="bg-gray-900/40 py-24">
+    <!-- SECONDARY -->
+    <div class="grid md:grid-cols-3 gap-8">
 
-<div class="max-w-6xl mx-auto px-6">
+      <!-- CLI -->
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
 
-<h3 class="text-3xl font-bold mb-12 text-center">Engineering Blog</h3>
+        <h4 class="font-semibold mb-3">
+          Internal CLI for Container Build Standardization
+        </h4>
 
-<div class="grid md:grid-cols-3 gap-8">
+        <div class="text-gray-400 text-sm md:hidden">
+          <button
+            onclick="toggleCard(this)"
+            class="text-indigo-400 text-sm"
+          >
+            Read more →
+          </button>
+        </div>
 
-<a href="https://blog.dhruvbhartia.com/i-used-to-think-docker-systemd-was-enough"
-target="_blank"
-class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
+        <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
 
-<h4 class="font-semibold mb-2">Docker vs systemd - My Mental Model Shift</h4>
-<p class="text-gray-400 text-sm">
-Understanding why containers change how we think about processes and systems.
-</p>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Problem</strong><br>
+            Ephemeral CI runners (DIND) needed frequent updates with strict
+            security constraints. Using Alpine reduced vulnerabilities, but
+            introduced issues (musl + unofficial Node support).
+          </p>
 
-<p class="text-indigo-400 mt-4 text-sm">Read →</p>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>What I did</strong><br>
+            Built an internal CLI to generate/update runner images with required
+            dependencies (Node, Helm, etc.) via arguments.
+          </p>
 
-</a>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Outcome</strong><br>
+            Removed manual image maintenance and made updates repeatable under
+            security constraints.
+          </p>
 
-<a href="https://blog.dhruvbhartia.com/how-dns-resolution-works-using-dig-to-see-whats-actually-happening"
-target="_blank"
-class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
+          <p class="text-gray-400 text-sm">
+            <strong>Learning</strong><br>
+            When constraints stack (security, compatibility, tooling), pipelines
+            become brittle. Encapsulating complexity in a dedicated tool is often
+            more stable than pushing it into CI logic.
+          </p>
 
-<h4 class="font-semibold mb-2">How DNS Resolution Actually Works</h4>
-<p class="text-gray-400 text-sm">
-Using dig to break down DNS step-by-step and understand what's happening.
-</p>
-
-<p class="text-indigo-400 mt-4 text-sm">Read →</p>
-
-</a>
-
-<a href="https://blog.dhruvbhartia.com/how-git-works-internally-building-a-mental-model"
-target="_blank"
-class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block">
-
-<h4 class="font-semibold mb-2">How Git Works Internally</h4>
-<p class="text-gray-400 text-sm">
-Building a mental model of Git instead of memorizing commands.
-</p>
-
-<p class="text-indigo-400 mt-4 text-sm">Read →</p>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
+        </div>
+      </div>
 
 
-<!-- CONTACT -->
-<section id="contact" class="max-w-3xl mx-auto px-6 py-24 text-center">
+      <!-- Scaling mismatch -->
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
 
-<h3 class="text-3xl font-bold mb-8">Let's Connect</h3>
+        <h4 class="font-semibold mb-3">
+          Scaling Mismatch: When HPA Was the Wrong Model
+        </h4>
 
-<p class="text-gray-400 mb-8">
-Open to discussions around DevOps, Kubernetes, and platform engineering.
-</p>
+        <div class="text-gray-400 text-sm md:hidden">
+          <button
+            onclick="toggleCard(this)"
+            class="text-indigo-400 text-sm"
+          >
+            Read more →
+          </button>
+        </div>
 
-<div class="space-y-4 text-sm flex flex-col items-center">
+        <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
 
-  <a href="mailto:hello@dhruvbhartia.com" 
-     class="flex items-center gap-3 hover:text-indigo-300 transition">
-    <span class="w-5 text-center">📧</span>
-    <span>hello@dhruvbhartia.com</span>
-  </a>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Problem</strong><br>
+            AI workloads (file uploads, async processing) didn't scale well with
+            HPA. CPU/memory signals didn't reflect actual pressure.
+          </p>
 
-  <a href="https://linkedin.com/in/dhruv-bhartia" target="_blank" 
-     class="flex items-center gap-3 hover:text-indigo-300 transition">
-    <span class="w-5 text-center">💼</span>
-    <span>LinkedIn</span>
-  </a>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>What I did</strong><br>
+            Analyzed scaling gaps during load tests and explored alternatives
+            beyond HPA/VPA.
+          </p>
 
-  <a href="https://x.com/dhruvbhartia07" target="_blank" 
-     class="flex items-center gap-3 hover:text-indigo-300 transition">
-    <span class="w-5 text-center">🐦</span>
-    <span>X / Twitter</span>
-  </a>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Outcome</strong><br>
+            Identified that event-driven scaling (e.g., KEDA) fits the workload
+            better, even though not implemented at the time.
+          </p>
 
-</div>
+          <p class="text-gray-400 text-sm">
+            <strong>Learning</strong><br>
+            Choosing the wrong scaling signal is worse than no scaling.
+            The real problem wasn't tuning HPA - it was assuming the problem fit
+            HPA at all.
+          </p>
 
-</section>
+        </div>
+      </div>
 
 
-<!-- FOOTER -->
-<footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
+      <!-- Onboarding -->
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition">
 
-© 2026 Dhruv Bhartia
+        <h4 class="font-semibold mb-3">
+          Reducing Tool Onboarding Time
+        </h4>
 
-</footer>
+        <div class="text-gray-400 text-sm md:hidden">
+          <button
+            onclick="toggleCard(this)"
+            class="text-indigo-400 text-sm"
+          >
+            Read more →
+          </button>
+        </div>
 
-<script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
+        <div class="hidden md:block text-gray-400 text-sm mt-3 mobile-content">
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Problem</strong><br>
+            Manual onboarding across tools took 2–3 days per request.
+          </p>
 
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>What I did</strong><br>
+            Automated onboarding using tool APIs into a self-service flow.
+          </p>
+
+          <p class="text-gray-400 text-sm mb-2">
+            <strong>Outcome</strong><br>
+            Reduced setup time to under 5 minutes.
+          </p>
+
+          <p class="text-gray-400 text-sm">
+            <strong>Learning</strong><br>
+            Most developer friction isn't technical - it's process latency.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BLOG -->
+  <section id="blog" class="bg-gray-900/40 py-24">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <h3 class="text-3xl font-bold mb-12 text-center">
+        Engineering Blog
+      </h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <a
+          href="https://blog.dhruvbhartia.com/i-used-to-think-docker-systemd-was-enough"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block"
+        >
+          <h4 class="font-semibold mb-2">
+            Docker vs systemd - My Mental Model Shift
+          </h4>
+
+          <p class="text-gray-400 text-sm">
+            Understanding why containers change how we think about processes
+            and systems.
+          </p>
+
+          <p class="text-indigo-400 mt-4 text-sm">
+            Read →
+          </p>
+        </a>
+
+
+        <a
+          href="https://blog.dhruvbhartia.com/how-dns-resolution-works-using-dig-to-see-whats-actually-happening"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block"
+        >
+          <h4 class="font-semibold mb-2">
+            How DNS Resolution Actually Works
+          </h4>
+
+          <p class="text-gray-400 text-sm">
+            Using dig to break down DNS step-by-step and understand what's
+            happening.
+          </p>
+
+          <p class="text-indigo-400 mt-4 text-sm">
+            Read →
+          </p>
+        </a>
+
+
+        <a
+          href="https://blog.dhruvbhartia.com/how-git-works-internally-building-a-mental-model"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition block"
+        >
+          <h4 class="font-semibold mb-2">
+            How Git Works Internally
+          </h4>
+
+          <p class="text-gray-400 text-sm">
+            Building a mental model of Git instead of memorizing commands.
+          </p>
+
+          <p class="text-indigo-400 mt-4 text-sm">
+            Read →
+          </p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-3xl mx-auto px-6 py-24 text-center">
+
+    <h3 class="text-3xl font-bold mb-6">
+      Let's Connect
+    </h3>
+
+    <p class="text-gray-400 max-w-xl mx-auto mb-8">
+      Open to discussions around DevOps, Kubernetes, platform engineering,
+      and interesting technical problems.
+    </p>
+
+
+    <!-- PRIMARY CTA -->
+    <div class="mb-10">
+
+      <a
+        href="/meet"
+        class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-medium transition"
+      >
+        Schedule a conversation
+        <span>→</span>
+      </a>
+
+      <p class="text-gray-500 text-xs mt-3">
+        Pick a time that works for you.
+      </p>
+
+    </div>
+
+
+    <!-- SECONDARY CONTACT OPTIONS -->
+    <div class="border-t border-gray-800 pt-8 space-y-4 text-sm flex flex-col items-center">
+
+      <a
+        href="mailto:hello@dhruvbhartia.com"
+        class="flex items-center gap-3 hover:text-indigo-300 transition"
+      >
+        <span class="w-5 text-center">📧</span>
+        <span>hello@dhruvbhartia.com</span>
+      </a>
+
+
+      <a
+        href="https://linkedin.com/in/dhruv-bhartia"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 hover:text-indigo-300 transition"
+      >
+        <span class="w-5 text-center">💼</span>
+        <span>LinkedIn</span>
+      </a>
+
+
+      <a
+        href="https://x.com/dhruvbhartia07"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 hover:text-indigo-300 transition"
+      >
+        <span class="w-5 text-center">🐦</span>
+        <span>X / Twitter</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
+
+    © 2026 Dhruv Bhartia
+
+  </footer>
+
+
+  <!-- MOBILE MENU -->
   <script>
-function toggleCard(btn) {
-  const content = btn.parentElement.nextElementSibling;
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
 
-  content.classList.toggle('hidden');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
-  btn.innerText = content.classList.contains('hidden')
-    ? 'Read more →'
-    : 'Show less ↑';
-}
-</script>
+
+  <!-- WORK CARD TOGGLE -->
+  <script>
+    function toggleCard(btn) {
+      const content = btn.parentElement.nextElementSibling;
+
+      content.classList.toggle('hidden');
+
+      btn.innerText = content.classList.contains('hidden')
+        ? 'Read more →'
+        : 'Show less ↑';
+    }
+  </script>
 
 </body>
 </html>
